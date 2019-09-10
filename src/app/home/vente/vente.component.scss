@@ -1,0 +1,146 @@
+.submit {
+  margin: 0 auto;
+}
+mat-card-title {
+  font-weight: bolder;
+  font-size: 1.7em;
+  font-style: oblique;
+  text-transform: uppercase;
+}
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 30vw;
+  place-content: center;
+  padding: 0 30px;
+  grid-gap: 20px;
+  .vente {
+    margin: 0 0 10px 0;
+
+    mat-form-field {
+      font-size: 1.2em;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 10px;
+  .montant {
+    display: flex;
+    div {
+      margin-left: 15px;
+      text-align: right;
+      p {
+        margin: 0;
+      }
+      p:first-child {
+        font-size: 0.8em;
+        color: gray;
+        font-style: italic;
+      }
+      p:last-child {
+        font-weight: bold;
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    left: 30%;
+    width: 100px;
+    border-radius: 0
+  }
+}
+
+.form {
+  display: flex;
+  place-content: center;
+  flex-wrap: wrap;
+}
+
+.detail {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 62vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  // border: 10px solid rgb(252, 251, 255);
+  // box-shadow: 1px 1px 5px rgb(238, 238, 238);
+  margin: 0 auto;
+  // Bonus points
+  &::-webkit-scrollbar {
+    width: 1em;
+    // height: 2em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(202, 202, 202);
+  }
+}
+
+.mycard {
+  width: 180px;
+  margin: 10px;
+  position: relative;
+  // color: white;
+  // background: linear-gradient(0deg, rgb(61, 103, 216),rgb(65, 80, 170),rgb(53, 69, 115))
+}
+
+.flex {
+  display: flex;
+  // place-content: center;
+  flex-wrap: wrap;
+  justify-items: flex-start;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  h3 {
+    font-size: 1.4em;
+    font-weight: bolder;
+  }
+  p {
+    color: gray;
+    font-style: italic;
+    font-size: 0.8em;
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .stock {
+    color: white;
+    padding: 2px 5px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px rgb(211, 211, 211);
+  }
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgb(141, 97, 97);
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    mat-form-field {
+      width: 40%;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+// input[type="number"]::-webkit-outer-spin-button,
+// input[type="number"]::-webkit-inner-spin-button {
+//       -webkit-appearance: none;
+//       margin: 0;
+// }

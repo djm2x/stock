@@ -1,1 +1,110 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap-css-only/css/bootstrap.min.css';
+// @import '../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css';
+// @import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
+/* @import '../node_modules/bootstrap/scss/utilities/spacing'; */
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../node_modules/ngx-toastr/toastr.css';
+@import "./assets/iconfont/material-icons.css";
+
+html, body { height: 100%; }
+body {
+    // height: 100%;
+    border: 1px solid rgb(43, 75, 255);
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #ffffff;
+    // background-color: #fafafa;
+}
+
+.largeBtn{
+  height: 100%; border-radius: 0 !important; margin-left: 5px;
+}
+
+.mat-expansion-panel-body {
+    padding: 0 !important;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.custom-modalbox {
+    mat-dialog-container {
+        padding: 0;
+    }
+}
+
+// .custom-spinner {
+//   mat-progress-spinner {
+//     stroke: yellow;
+//   }
+// }
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+//data table
+/* Structure */
+.example-container {
+    position: relative;
+  }
+
+  .example-table-container {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .example-rate-limit-reached {
+    color: #980000;
+    max-width: 360px;
+    text-align: center;
+  }
+
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state {
+    max-width: 64px;
+  }
+
+  .mat-column-created {
+    max-width: 124px;
+  }
+
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow:
+    0 2px 30px -1px rgba(0,0,0,.2),
+    0 1px 1px 0 rgba(0,0,0,.14),
+    0 1px 3px 0 rgba(0,0,0,.12);
+  }
+

@@ -1,0 +1,135 @@
+.all {
+  display: flex;
+  flex-direction: column;
+  // place-items: center;
+  // background: white;
+  // width: 45vw;
+  margin: auto;
+}
+.first {
+
+  position: relative;
+  margin-bottom: 10px;
+  mat-card-title {
+    font-weight: bolder;
+    font-size: 1.7em;
+    font-style: oblique;
+    text-transform: uppercase
+  }
+  .actions {
+    display: flex;
+    align-content: center;
+    // justify-content: center;
+    width: 100%;
+    .search {
+      display: flex;
+      margin-left: auto;
+      p {
+        text-align: right;
+        font-size: 0.8em;
+        color: gray;
+        font-style: italic;
+        margin-top: -10px;
+      }
+      mat-icon {
+        margin: 20px 0 0 -15px;
+      }
+    }
+
+    > button {
+      position: absolute;
+      left: 0;
+      bottom: 20px;
+      border-radius: 0;
+      width: 100px;
+    }
+  }
+}
+.container {
+  overflow: auto;
+  // background: rgb(243, 243, 243);
+  height: 68.4vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 10px solid white;
+  box-shadow: 0 2px 30px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  margin: 0 auto;
+  // Bonus points
+  &::-webkit-scrollbar {
+    width: 1em;
+    // height: 2em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    // height: 2em;
+    background-color: rgb(202, 202, 202);
+  }
+}
+
+.card {
+  height: 65px;
+  widows: 100px;
+  opacity: 0.05;
+}
+.container mat-card {
+  position: relative;
+  padding-bottom: 60px;
+  margin: 10px 5px;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 25px;
+    grid-gap: 20px;
+  }
+  .des {
+    // padding: 15px 0 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    section:first-child {
+      p:first-child {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+      }
+
+      p:nth-child(2) {
+        color: rgb(126, 126, 126);
+        font-size: 0.9em;
+        font-style: italic;
+      }
+    }
+
+    p {
+      margin: auto;
+      color: rgb(126, 126, 126);
+      font-size: 0.8em;
+    }
+    .stock {
+      color: white;
+      padding: 2px 5px;
+      border-radius: 2px;
+      box-shadow: 1px 1px 5px rgb(211, 211, 211);
+    }
+  }
+
+  .shop {
+    margin: 10px 0;
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    border-radius: 0;
+    width: 100px;
+    // z-index: 1;
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+    p {
+      margin: 30px 5px 0;
+      color: rgb(126, 126, 126);
+      font-size: 0.8em;
+    }
+  }
+}

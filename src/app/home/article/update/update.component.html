@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Article Ajout</h1>
+<div mat-dialog-content>
+
+  <form [formGroup]="myForm">
+    <mat-form-field>
+      <input matInput formControlName="reference" placeholder="Référence" type="text">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="designation" placeholder="designation" type="text">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="qteE" placeholder="qteE" type="number">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="prixA" placeholder="prixA" type="number" min="1">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="prixV" placeholder="prixV" type="number" min="1">
+    </mat-form-field>
+    <!-- <mat-form-field>
+      <input matInput formControlName="stockIntial" placeholder="stockIntial" type="number" min="1">
+    </mat-form-field> -->
+    <mat-form-field>
+      <input matInput formControlName="stockFinal" placeholder="stockFinal" readonly>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" type="button">Annuler</button>
+  <button mat-raised-button cdkFocusInitial color="primary" (click)="onOkClick(myForm.value)" [disabled]="myForm.invalid">Valider</button>
+</div>

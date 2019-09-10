@@ -1,0 +1,73 @@
+<header>
+  <mat-toolbar color="primary" style="height: 50px;-webkit-app-region: drag;" class="fixed-top">
+    <button mat-button (click)="snav.toggle()" routerLinkActive="active">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <app-loader class="ml-2"></app-loader>
+    <span class="example-spacer"></span>
+    <button mat-raised-button class="ml-5" (click)="refresh()" style="border-radius: 0;margin-top: -14px">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    <button mat-raised-button class="ml-5" (click)="do('min')" style="border-radius: 0;margin-top: -14px">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <button mat-raised-button class="ml-2" (click)="do('max')" style="border-radius: 0;margin-top: -14px;">
+      <mat-icon style="transform: scale(-1, -1);">filter_none</mat-icon>
+    </button>
+    <button mat-raised-button class="ml-2" (click)="do('close')" style="border-radius: 0;margin-top: -14px">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>
+<mat-sidenav-container #sidenav class="example-sidenav-container" style=" height: 100%;">
+  <mat-sidenav  #snav [mode]="(!mobileQuery.matches) ? 'side' : 'over'" [opened]="opened && !mobileQuery.matches"
+    [fixedInViewport]="true" fixedTopGap="50" style="box-shadow: 2px 2px 10px 1px rgba(0,0,0,.2);">
+    <mat-nav-list class="list" style="width: 180px; padding: 0;">
+      <mat-divider></mat-divider>
+      <mat-list-item [routerLink]="['/home/welcome']" (click)="currentSection = '/home/welcome'"
+        [style.background-color]="(currentSection === '/home/welcome') ? 'rgba(73, 255, 185, 0.534)' : ''">
+        <i class="fas fa-chart-line icon-size"></i>
+        <mat-icon>dashboard</mat-icon>&nbsp;
+        <span>Dash-board</span>
+        <span style="border-bottom: 5px solid rgba(73, 255, 185, 0.534);"></span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [routerLink]="['/home/article']" (click)="currentSection = '/home/article'"
+        [style.background-color]="(currentSection === '/home/article') ? 'rgba(73, 255, 185, 0.534)' : ''">
+        <i class="fas fa-chart-line icon-size"></i>
+        <mat-icon>shop</mat-icon>&nbsp;
+        <span>Article</span>
+        <span style="border-bottom: 5px solid rgba(73, 255, 185, 0.534);"></span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="['/home/ventes']" (click)="currentSection = '/home/ventes'"
+        [style.background-color]="(currentSection === '/home/ventes') ? 'rgba(73, 255, 185, 0.534)' : ''">
+        <i class="fas fa-chart-line icon-size"></i>
+        <mat-icon>local_mall</mat-icon>&nbsp;
+        <span>Ventes</span>
+        <span style="border-bottom: 5px solid rgba(73, 255, 185, 0.534);"></span>
+      </mat-list-item>
+    </mat-nav-list>
+
+    <button #btndev mat-button (click)="devTools()" style="position: absolute;bottom: 2px;left: 53px;">DEV</button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div style="margin: 65px auto 15px;" class="mybreadcrumb">
+      <div *ngFor="let s of patchRoute" class="items">
+        <a [routerLink]="['/home/connection']">{{ s !== '-1' ? s : 'nauveau'}}</a><mat-icon>navigate_next</mat-icon>
+      </div>
+    </div>
+    <main [@routerTransition]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
+
+    <!-- <footer>
+      <mat-toolbar class="mt-2 text" color="primary">
+        <mat-toolbar-row style="height: 70px">
+          <span style="margin-left: auto; margin-right: auto;"> © {{ d | date:"dd/MMMM/yyyy" }} - Yaasin MOURABIT</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </footer> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

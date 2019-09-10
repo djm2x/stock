@@ -1,0 +1,94 @@
+
+<button class="add-btn" mat-raised-button color="primary" [routerLink]="['/home/ventes', -1]">
+  <mat-icon>add</mat-icon>&nbsp;
+  Ajouter
+</button>
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <table mat-table #table [dataSource]="dataSource" multiTemplateDataRows aria-label="Elements">
+    <ng-container [matColumnDef]="columnDefs[0].columnDef">
+      <th mat-header-cell *matHeaderCellDef>{{columnDefs[0].headName}}</th>
+      <td mat-cell *matCellDef="let row">{{row[columnDefs[0].columnDef]}}</td>
+    </ng-container>
+    <ng-container [matColumnDef]="columnDefs[1].columnDef">
+      <th mat-header-cell *matHeaderCellDef>{{columnDefs[1].headName}}</th>
+      <td mat-cell *matCellDef="let row">{{row[columnDefs[1].columnDef]}}</td>
+    </ng-container>
+    <ng-container [matColumnDef]="columnDefs[2].columnDef">
+      <th mat-header-cell *matHeaderCellDef>{{columnDefs[2].headName}}</th>
+      <td mat-cell *matCellDef="let row">{{row[columnDefs[2].columnDef] | date: "dd MM yyyy"}}</td>
+    </ng-container>
+    <ng-container matColumnDef="option" style="flex-direction: row-reverse;">
+      <th mat-header-cell *matHeaderCellDef> Option </th>
+      <td mat-cell *matCellDef="let row">
+        <div class="button-row">
+          <button mat-icon-button color="accent" (click)="expandedTable(row)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="edit(row)">
+              <mat-icon>create</mat-icon>
+            </button>
+          <button mat-icon-button color="warn" (click)="delete(row.id)">
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let e" [attr.colspan]="displayedColumns.length">
+        <div class="example-element-detail"
+        [@detailExpand]="e.id === (expandedElement ? expandedElement.id : -1) ? 'expanded' : 'collapsed'">
+          <div class="example-element-description">
+            <div *ngIf="expandedElement">
+            <section class="vente">
+              <div>
+                <p>Ref : {{expandedElement.id}} </p>
+                <p>Num : {{expandedElement.numero}}</p>
+              </div>
+              <p>{{expandedElement.date | date: "dd/MM/yyyy"}}</p>
+            </section>
+            <section class="articles">
+              <div class="titles">
+                  <span>designation</span>
+                  <span>qte</span>
+                  <span>prixV</span>
+                  <span class="right">montant</span>
+              </div>
+                <div class="values" *ngFor="let o of expandedElement.venteArticles">
+                  <span>{{o.article.designation}}</span>
+                  <span>{{o.qte}}</span>
+                  <span>{{o.article.prixV}}</span>
+                  <span class="right">{{o.montant}}</span>
+                </div>
+            </section>
+            <section class="montant">
+              <div>
+                <p>Total HT</p>
+                <p>TVA</p>
+                <p>Total TTC</p>
+              </div>
+              <div>
+                <p>{{montantHT}}</p>
+                <p>{{expandedElement.tva}}</p>
+                <p>{{montantTTC}}</p>
+              </div>
+            </section>
+          </div>
+        </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  </table>
+
+  <mat-paginator #paginator [length]="resultsLength" pageIndex="0" pageSize="5"
+    [pageSizeOptions]="[5, 25, 50, 100, 250]">
+  </mat-paginator>
+</div>

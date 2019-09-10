@@ -1,0 +1,138 @@
+.add-btn {
+  margin: auto 20px 20px;
+  // padding: 10px;
+}
+
+.example-container {
+  margin: auto 20px;
+}
+
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #f5f5f5;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+  // display: flex;
+  // flex-direction: column;
+  width: 100%;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+$color: #7b64c5;
+
+.vente {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 5px rgb(230, 230, 230);
+  padding: 10px 15px;
+  p {
+    margin-bottom: auto;
+    // font-size: 1.2em;
+  }
+  div {
+    p:first-child {
+      font-size: 1.2em;
+      color: $color;
+      font-weight: bold;
+    }
+    p:last-child {
+      color: gray;
+      font-size: 1.1em;
+      font-style: italic;
+    }
+  }
+}
+
+.articles {
+  display: flex;
+  margin: 10px auto;
+
+  flex-direction: column;
+  box-shadow: 1px 1px 5px rgb(230, 230, 230);
+  .titles,
+  .values {
+    display: grid;
+    grid-template-columns: repeat(3, 20%) 1fr;
+    padding: 10px 15px;
+    span {
+      margin-right: 10px;
+      // margin-bottom: .4rem;
+    }
+  }
+
+  .titles {
+    background: $color;
+    color: white;
+    font-weight: bold;
+    padding: 7px 15px;
+  }
+  .right {
+    // flex-basis: 1;
+    margin-left: auto;
+    text-align: left;
+
+  }
+}
+
+.montant {
+  display: flex;
+  padding: 10px 15px;
+  box-shadow: 1px 1px 5px rgb(230, 230, 230);
+
+  div {
+
+    p {
+      color: gray;
+      margin: auto;
+    }
+    p:last-child {
+      margin-top: 5px;
+      color: $color;
+      font-weight: bolder;
+    }
+  }
+
+  div:first-child {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+}

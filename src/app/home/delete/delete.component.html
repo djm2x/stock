@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{model}} Supprission</h1>
+<div mat-dialog-content>
+  <p>Voulez vous vraiment supprimer cette categorie avec ces article?</p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" type="button">Annuler</button>
+  <button mat-button [mat-dialog-close]="" color="primary" type="button" (click)="onOkClick()"
+    cdkFocusInitial>Ok</button>
+</div>

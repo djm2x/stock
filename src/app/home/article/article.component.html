@@ -1,0 +1,80 @@
+<div class="all" [style.width]="isInVente ? '100%' : '45vw'">
+  <mat-card class="first">
+      <mat-card-header>
+          <mat-card-title>Stock</mat-card-title>
+        </mat-card-header>
+        <mat-card-content  class="actions">
+
+          <div class="search">
+            <div>
+
+              <mat-form-field>
+                <input matInput [formControl]="filter" placeholder="Filter">
+              </mat-form-field>
+              <p>Articles : {{ array.controls.length }}</p>
+            </div>
+            <button mat-icon-button color="primary" type="button" (click)="refresh()">
+              <mat-icon>refresh</mat-icon>
+            </button>
+          </div>
+          <button mat-raised-button color="primary" type="button" (click)="add()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-card-content>
+  </mat-card>
+  <div class="container">
+    <form [formGroup]="myForm">
+      <div formArrayName="items">
+        <div class="item" *ngFor="let o of array.controls; let index=index; trackBy:trackById" [formGroupName]="index">
+          <mat-card>
+            <div class="grid">
+              <div class="des">
+                <section>
+                  <p>{{ o.value.designation}}</p>
+                  <p>{{ o.value.reference}}</p>
+                </section>
+                <!--  -->
+                <section>
+                  <!-- <p>qteE : {{ o.value.qteE}}</p> -->
+                  <p>stock finale : <span class="stock"
+                      [style.background]="o.value.stockFinal > 1 ? (o.value.stockFinal > 5 ? 'green' : 'orange') : 'red'">
+                      {{ o.value.stockFinal}} piece</span></p>
+                  <!-- <p>stockFinal : {{ o.value.stockFinal}}</p> -->
+                  <p>prix : {{ o.value.prixV}}</p>
+                  <!-- <p>prixA : {{ o.value.prixA}}</p> -->
+                </section>
+                <!--  -->
+              </div>
+              <section>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item (click)="delete(index, o.value)">
+                    <mat-icon>delete</mat-icon>
+                    <span>delete</span>
+                  </button>
+                  <button mat-menu-item (click)="edit(index, o.value)">
+                    <mat-icon>create</mat-icon>
+                    <span>Edit</span>
+                  </button>
+                </mat-menu>
+              </section>
+            </div>
+            <button *ngIf="isInVente" class="shop" mat-flat-button (click)="shope(o.value)" color="accent">
+              <mat-icon>shopping_cart</mat-icon>
+            </button>
+            <!-- <div class="col">
+            <p>prixA : {{ o.value.prixA}}</p>
+            <p>prixV : {{ o.value.prixV}}</p>
+          </div> -->
+
+          </mat-card>
+        </div>
+      </div>
+      <div #call class="card">
+
+      </div>
+    </form>
+  </div>
+</div>
