@@ -30,7 +30,7 @@
   "private": true,
   "optionalDependencies": {},
   "dependencies": {
-    "typeorm": "^0.2.18",
+    "typeorm": "^0.2.25",
     "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master"
   },
   "devDependencies": {
